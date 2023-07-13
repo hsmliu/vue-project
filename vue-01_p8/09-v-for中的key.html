@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+<!--        v-model双向绑定，页面变化数据也变化    :value单向绑定  数据到页面变化-->
+        <input type="text" v-model="name">
+        <button @click="addNewUser">添加</button>
+    </div>
+
+    <!--        v-for指令渲染列表-->
+<!--    加入勾选了第一个标签，在添加新用户时，默认勾选的用户就变成了新添加的元素，因为标签没有设置唯一属性，默认选择的还是第一个-->
+<!--    引入了key之后，给了标签唯一属性-->
+<!--    通常以数据库中查询出的主键设为key-->
+    <ul>
+        <li v-for="user in userList" :key="user.id">
+            <input type="checkbox">
+            姓名： {{user.name}}
+        </li>
+    </ul>
+</div>
+
+<script>
+    const vm = {
+        data(){
+            return{
+                userList:[
+                    {id:1, name:"张三"},
+                    {id:2, name:"张四"},
+                    {id:3, name:"张五"},
+                    {id:4, name:"张六"},
+                ],
+                name:'',
+                nextId:5
+            }
+        },
+        methods:{
+            addNewUser(){
+                this.userList.unshift({id:this.nextId, name:this.name})
+                this.name = ''
+                this.nextId++
+            }
+        }
+    }
+    Vue.createApp(vm).mount("#app")
+</script>
+</body>
+</html>

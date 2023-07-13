@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="num > 0.5">随机数 > 0.5</p>
+        <p v-else>随机数 <= 0.5</p>
+        <hr/>
+
+        <p v-if="type === 'A'">优秀</p>
+        <p v-else-if="type === 'B'">良好</p>
+        <p v-else-if="type === 'C'">一般</p>
+        <p v-else>差</p>
+    </div>
+
+<script>
+    const vm = {
+        data(){
+            return{
+                num:Math.random(),
+                type:'B'
+            }
+        }
+    }
+    Vue.createApp(vm).mount("#app")
+</script>
+</body>
+</html>

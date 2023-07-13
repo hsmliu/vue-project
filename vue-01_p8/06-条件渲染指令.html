@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag = !flag">Toggle Flag</button>
+
+<!--        v-if为false时标签不会创建   v-show会创建，但是被隐藏-->
+<!--        如果标签需要频繁地被切换，应该使用v-show-->
+        <p v-if="flag">请求成功 --- 被 v-if 控制</p>
+        <p v-show="flag">请求成功 --- 被v-show控制</p>
+    </div>
+
+
+<script>
+    const vm = {
+        data(){
+            return{
+                flag:false
+            }
+        }
+    }
+    Vue.createApp(vm).mount("#app")
+</script>
+</body>
+</html>

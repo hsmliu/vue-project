@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+<!--        v-for指令渲染列表-->
+        <ul>
+            <li v-for="(user, i) in userList">索引是： {{i}}, 姓名是: {{user.name}}</li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = {
+            data(){
+                return{
+                    userList:[
+                        {id:1, name:"张三"},
+                        {id:2, name:"张四"},
+                        {id:3, name:"张五"},
+                        {id:4, name:"张六"},
+                    ]
+                }
+            }
+        }
+        Vue.createApp(vm).mount("#app")
+    </script>
+</body>
+</html>

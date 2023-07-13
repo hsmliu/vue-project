@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 1. 导入vue的脚本文件-->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <!-- 声明被vue控制的DOM区域-->
+    <div id="app">
+        {{ message }}
+    </div>
+
+<!-- 创建 vue 的实例对象-->
+<script>
+    const hello = {
+        // 指定数据源，即NVVM中的Model
+        data() {
+            return {
+                message: 'Hello Vue!'
+            }
+        }
+    }
+    Vue.createApp(hello).mount('#app')
+</script>
+</body>
+</html>

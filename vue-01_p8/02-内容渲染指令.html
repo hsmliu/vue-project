@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>姓名： {{username}}</p>
+        <p>性别： {{gender}}</p>
+
+        <p>{{desc}}</p>
+
+        // 渲染html的指令
+        <p v-html="desc"></p>
+    </div>
+
+<script>
+    const vm = {
+        data() {
+            return {
+                username: 'zhangsan',
+                gender: '男',
+                desc: "<a href='http://www.baidu.com'>百度</a>"
+            };
+        }
+    }
+    Vue.createApp(vm).mount("#app")
+</script>
+</body>
+</html>

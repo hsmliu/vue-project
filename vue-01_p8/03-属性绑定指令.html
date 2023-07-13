@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <!-- : 属于v-bind:的简写 -->
+    <div id="app">
+        <a v-bind:href="link">百度</a>
+        <input type="text" :placeholder="inputValue">
+        <img :src="imgSrc" :style="{width:w}" alt="">
+    </div>
+
+    <script>
+        const vm = {
+            data(){
+                return{
+                    link:"http://www.baidu.com",
+                    inputValue:"请输入内容",
+                    imgSrc:"./images/print.png",
+                    w:"100px"
+                }
+            }
+        }
+        Vue.createApp(vm).mount("#app")
+    </script>
+</body>
+</html>
