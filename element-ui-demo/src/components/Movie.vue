@@ -1,5 +1,6 @@
 <template>
   <div>
+<!--    图标用法 <i class="fa iconName"></i>-->
     <i class="fa fa-file-movie-o"></i>
     <span style="font-size: large; margin-left: 1em">{{ title }}</span>
     <span style="font-size: large; margin-left: 1em">{{ rating }}</span>
