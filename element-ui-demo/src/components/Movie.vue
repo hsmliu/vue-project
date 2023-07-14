@@ -30,6 +30,9 @@ export default {
     fun(){
       alert("收藏成功")
     }
+  },
+  created() {
+    console.log("Movie组件被创建了")
   }
 }
 </script>

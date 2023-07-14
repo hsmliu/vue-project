@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Movie v-for="movie in movies" key="movie.id" :title="movie.title" :rating="movie.rating"></Movie>
+    <Movie v-for="movie in movies" :key="movie.id" :title="movie.title" :rating="movie.rating"></Movie>
     <hello></hello>
     <Tab></Tab>
   </div>
@@ -11,6 +11,7 @@
 import Movie from "@/components/Movie.vue";
 import Hello from "@/components/Hello.vue";
 import Tab from "@/components/Tab.vue";
+
 
 export default {
   name: 'App',
@@ -28,6 +29,11 @@ export default {
         {id:4, title:"金刚", rating:7}
       ]
     }
+  },
+  // app被挂完毕时执行
+  mounted() {
+    // 比created晚
+    console.log("App组件被挂载了")
   }
 }
 </script>

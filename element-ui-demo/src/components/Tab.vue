@@ -3,7 +3,12 @@
       :data="tableData"
       style="width: 100%">
     <el-table-column
-        prop="date"
+        prop="id"
+        label="编号"
+        width="100">
+    </el-table-column>
+    <el-table-column
+        prop="createTime"
         label="日期"
         width="180">
     </el-table-column>
@@ -20,28 +25,36 @@
 </template>
 
 <script>
+
+
 export default {
+
   data() {
     return {
-      tableData: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      tableData: []
     }
-  }
+  },
+  // 生命周期函数 created,组件创建后执行
+  // 一般网络请求在created里面做,在页面挂载完成之前
+  created() {
+    console.log("App组件被创建了")
+
+    // 异步执行
+    // axios.get("http://127.0.0.1:9090/api/users")
+    //     .then(function (response){
+    //       // 异步回调
+    //       console.log(response)
+    //       // 和created中的this对象作用域不一致   无法使用 this.tableData
+    //       // this.tableData = response.data
+    //     })
+    this.$http.get("/api/users")
+        .then((response)=>{
+          console.log(response)
+          if (response.data.code === 200){
+            this.tableData = response.data.data;
+          }
+        })
+  },
 }
 </script>
 
